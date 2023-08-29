@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <center><h1>Functions</h1></center>
+    <div>
+        <details class="head">
+            <summary><span class="question">Question 1:</span><br>Create one function with zero parameter having a console statement;</summary>
+            <pre id="console_answer1">
+                function question1(){
+                    console.log("Hello World")  
+                }
+                question1()</pre>
+        </details>
+        <details class="head">
+            <summary><span class="question">Question 2:</span><br>Create one function which takes two values as a parameter and print the sum of them as "Sum of 3, 4 is 7"</summary>
+            <pre id="console_answer2">
+                function question2(a,b){
+                    let sum = a + b;
+                    console.log(`Sum of ${a}, ${b} is ${sum}`)
+                }
+                question2(3, 7)
+            </pre>
+        </details>
+        <details class="head">
+            <summary><span class="question">Question 3:</span><br>Create one arrow function</summary>
+            <pre id="console_answer3">
+                const question3 = ((m, n)=> m  *  n )
+                console.log(question3(5,3))
+            </pre>
+        </details>
+        <details class="head">
+            <summary><span class="question">Question 4:</span><br>
+                <pre>
+                    <span>Print output:</span>
+                    01 var x = 21;
+                    02 var girl = function () {
+                    03     console.log(x);
+                    04     var x = 20;
+                    05 };
+                    06 girl ();
+                </pre>
+            </summary>
+            <p>line 03: undefined ; console.log(x); tries to log the value of the local variable x. However, due to hoisting, the local variable x is declared in the function scope, but it hasn't been assigned a value yet. So, at this point, the value of the local x is undefined.</p>
+        </details>
+        <details class="head">
+            <summary><span class="question">Question 5:</span><br>
+                <pre>
+                    <span>Print output:</span> 
+                    01 var x = 21;
+                    02 girl ();
+                    03 console.log(x)
+                    04 function girl() {
+                    05     console.log(x);
+                    06     var x = 20;
+                    07 };
+                </pre>
+            </summary>
+            <p id="console_answer4_1">line 05: undefined ; Because inside the function girl(), console.log(x); prints the value of the local variable x. However, due to hoisting, the local variable x is declared inside the function but not yet assigned a value. So, it will print undefined</p>
+            <p id="console_answer4_2">line 03: 21 ; Because after the function call, console.log(x); outside the function prints the global variable x, which remains 21</p>
+        </details>
+        <details class="head">
+            <summary><span class="question">Question 6:</span><br>
+                <pre>
+                    <span>"Print output:</span>
+                    01 var x = 21;
+                    02 a();
+                    03 b();
+                    04
+                    05 function a() { 
+                    06   x = 20;
+                    07   console.log(x);
+                    08 };
+                    09 function b() {    
+                    10    x = 40;
+                    11   console.log(x);
+                    12 };</pre></summary>
+            <p id="console_answer4_1">line 07: 20 ; Inside a(), x is set to 20, and then console.log(x) outputs 20.</p>
+            <p id="console_answer4_1">line 11: 40 ; Inside b(), x is set to 40, and then console.log(x) outputs 40.</p>
+        </details>
+        <details class="head">
+        <summary><span class="question">Question 7:</span><br>Write a function that accepts parameter n and returns factorial of n</summary>
+            <pre>
+                function fact(n){
+                    let ans = 1;
+                    for(let i = n; i>=1; i--){
+                    ans = ans*i
+                    }
+                    console.log(ans)
+                }
+                fact(5)
+            </pre>
+        </details>
+        <details class="head">
+            <summary><span class="question">Question 8:</span><br>
+                <pre>
+                    <span>"Guess the Output"</span>
+                    01 function FindSum(a, b){
+                    02     return a + b;
+                    03 }
+                    04 
+                    05 function DisplayData(data, batch){
+                    06     console.log(`i am from ${data} and My batch is EA${batch}`)
+                    07 }
+                    08 
+                    09 DisplayData("PrepBytes", FindSum(10, 9));</pre></summary>
+            <p id="console_answer4_1">line 06: i am from PrepBytes and My batch is EA19 ; FindSum function adds 10 and 9, resulting in 19. then, DisplayData function is called with the arguments "PrepBytes" and 19.</p>
+        </details>
+        <details class="head">
+            <summary><span class="question">Question 9:</span><br>
+                <pre>
+                    <span>"Guess the output"</span>
+                    01 Abc();
+                    02 const Abc = function(){
+                    03     let value = 20;
+                    04     console.log(value);
+                    05 }
+                </pre>
+            </summary>
+            <p id="console_answer4_1">line 04: Error ; Because cannot access 'Abc' before initialization</p>
+        </details>
+        <details class="head">
+            <summary><span class="question">Question 10:</span><br>
+                <pre>
+                    <span>"Guess the output"</span>
+                    01 var a = 10;
+                    02 (function (){
+                    03     console.log(a);
+                    04     var a = 20;
+                    05 })();
+                </pre>
+            </summary>
+            <p id="console_answer4_1">line 03: undefined ; The console.log(a); statement inside the function logs undefined because the var a declaration is hoisted, but its value isn't assigned until after the console.log statement.</p>
+        </details>
+        <details class="head">
+            <summary><span class="question">Question 11:</span><br>
+                <pre>
+                    <span>"Guess the Output"</span>
+                    01 const greet =  function(name){
+                    02     return function(m){
+                    03    
+                    04        console.log(`Hi!! ${name}, ${m}`);
+                    05    }
+                    06 }
+                    07   
+                    08 const greet_message = greet('EA19');
+                    09 greet_message("Welcome To PrepBytes")
+                </pre>
+            </summary>
+            <p id="console_answer4_1">line 04: Hi!! EA19, Welcome To PrepBytes ; The inner function takes a parameter m and uses both the name parameter from the outer function and the m parameter from the inner function.</p>
+        </details>
+    </div>
+</body>
+</html>
